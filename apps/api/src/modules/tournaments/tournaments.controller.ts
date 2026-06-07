@@ -5,6 +5,6 @@ export class TournamentsController {
 
     @Get('lensur')
     getLensur() {
-        return {"name": "Liga Lensur 2026", "sport": "Swimming"}
+        return [{"id": 1,"name": "Liga Lensur 2026", "sport": "Swimming"}]
     }
 }
