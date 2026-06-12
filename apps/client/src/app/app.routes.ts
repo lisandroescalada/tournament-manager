@@ -9,7 +9,7 @@ export const routes: Routes = [
     {
         path: 'tournaments',
         loadChildren: () =>
-            import('./features/tournaments/module/tournaments-module').then((m) => m.TournamentsModule),
+            import('./features/tournaments/presentation/tournaments-module').then((m) => m.TournamentsModule),
     },
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ]

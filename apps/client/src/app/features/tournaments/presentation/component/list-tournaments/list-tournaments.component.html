@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de torneos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    @for (tournament of tournaments; track tournament.id) {
+      <ion-item>
+        <ion-label>
+          <h2>{{ tournament.name }}</h2>
+
+          <p>
+            Deporte: {{ tournament.sport }} · Temporada: {{ tournament.season }}
+          </p>
+
+          <p>
+            Organización: {{ tournament.organizationId }}
+          </p>
+
+          <p>
+            {{ tournament.description }}
+          </p>
+
+          <p>
+            📅 {{ tournament.startDate | date:'shortDate' }}
+            -
+            {{ tournament.endDate | date:'shortDate' }}
+          </p>
+
+          <p>
+            Estado:
+            <strong>
+              {{ tournament.status ? 'Activo' : 'Inactivo' }}
+            </strong>
+          </p>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>

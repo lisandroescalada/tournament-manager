@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core'
 import { Tournament } from '../../../domain/model/tournament.model'
-import { TournamentRepository } from '../../../domain/repository/tournament.repository'
 import { IonicModule } from '@ionic/angular'
+import { DatePipe } from '@angular/common'
+import { GetTournamentsUseCase } from '../../../application/use-cases/get-tournaments.use-case'
 
 @Component({
   selector: 'app-list-tournaments',
+  standalone: true,
+  imports: [IonicModule, DatePipe],
   templateUrl: './list-tournaments.component.html',
   styleUrls: ['./list-tournaments.component.scss'],
-  imports: [IonicModule]
 })
-export class ListTournamentsComponent  implements OnInit {
+export class ListTournamentsComponent implements OnInit {
   tournaments: Tournament[] = []
 
-  constructor(private tournamentRepository: TournamentRepository) { }
+  constructor(private getTournamentsUseCase: GetTournamentsUseCase) { }
 
   ngOnInit() {
     this.loadTournaments()
   }
 
   loadTournaments() {
-    this.tournamentRepository.getTournaments().subscribe({
+    this.getTournamentsUseCase.execute().subscribe({
       next: (tournaments: Tournament[]) => {
         this.tournaments = tournaments
       },

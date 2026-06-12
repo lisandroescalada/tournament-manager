@@ -1,15 +1,12 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TournamentsController } from './modules/tournaments/tournaments.controller';
-import { TournamentsService } from './modules/tournaments/tournaments.service';
-import { TournamentsModule } from './modules/tournaments/tournaments.module';
-import { OrganizationsController } from './modules/organizations/organizations.controller';
-import { OrganizationsModule } from './modules/organizations/organizations.module';
+import { Module } from '@nestjs/common'
+import { TournamentsModule } from './modules/tournaments/tournaments.module'
+import { OrganizationsModule } from './modules/organizations/infrastructure/module/organizations.module'
 
 @Module({
-  imports: [TournamentsModule, OrganizationsModule],
-  controllers: [AppController, TournamentsController, OrganizationsController],
-  providers: [AppService, TournamentsService],
+  imports: [
+    TournamentsModule
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
