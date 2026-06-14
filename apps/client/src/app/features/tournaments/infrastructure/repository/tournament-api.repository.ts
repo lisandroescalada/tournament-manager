@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core"
 import { Tournament } from "../../domain/model/tournament.model"
 import { HttpClient } from "@angular/common/http"
 import { TournamentDTO } from "../dto/tournament.dto"
-import { TournamentMapper } from "../mapper/tournament.mapper"
+import { TournamentMapper } from "../../application/mapper/tournament.mapper"
 
 @Injectable({
     providedIn: 'root',

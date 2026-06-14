@@ -32,7 +32,7 @@
           <p>
             Estado:
             <strong>
-              {{ tournament.status ? 'Activo' : 'Inactivo' }}
+              {{ tournament | tournamentsStatus }}
             </strong>
           </p>
         </ion-label>

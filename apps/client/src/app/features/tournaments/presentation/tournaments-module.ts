@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 import { TournamentsRoutingModule } from './tournaments-routing-module'
-import { GetTournamentsUseCase } from '../application/use-cases/get-tournaments.use-case'
+import { TournamentMockRepository } from '../infrastructure/repository/tournament-mock.repository'
+import { GetTournamentsQuery } from '../application/queries/get-tournaments.query'
 import { TournamentApiRepository } from '../infrastructure/repository/tournament-api.repository'
 
 @NgModule({
@@ -12,9 +13,9 @@ import { TournamentApiRepository } from '../infrastructure/repository/tournament
   ],
   providers: [
     {
-      provide: GetTournamentsUseCase,
-      useFactory: (repository: TournamentApiRepository) => {
-          return new GetTournamentsUseCase(repository)
+      provide: GetTournamentsQuery,
+      useFactory: (repo: TournamentApiRepository) => {
+          return new GetTournamentsQuery(repo)
       },
       deps: [TournamentApiRepository]
     }
